@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class QRCodeController {
 
-    private static final String QR_CODE_IMAGE_PATH = "./src/main/resources/QRCode.png";
+    private static final String QR_CODE_IMAGE_PATH = "./back/src/main/resources/image.jpg";
 
 
     @GetMapping(value = "/genrateAndDownloadQRCode/{codeText}/{width}/{height}")
