@@ -1,4 +1,4 @@
-package com.example.projetsem2testqrcode;
+package com.example.projetsem2qrcode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

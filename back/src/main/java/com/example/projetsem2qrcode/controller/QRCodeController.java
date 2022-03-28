@@ -1,7 +1,7 @@
-package com.example.projetsem2testqrcode.controller;
+package com.example.projetsem2qrcode.controller;
 
 
-import com.example.projetsem2testqrcode.QrCodeGenerator;
+import com.example.projetsem2qrcode.QrCodeGenerator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
