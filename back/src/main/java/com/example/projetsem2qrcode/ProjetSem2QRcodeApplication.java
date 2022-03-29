@@ -1,18 +1,20 @@
 package com.example.projetsem2qrcode;
 
-import com.example.projetsem2qrcode.modele.Adresse;
-import com.example.projetsem2qrcode.modele.Etudiant;
-import com.example.projetsem2qrcode.modele.Gender;
 import com.example.projetsem2qrcode.dao.EtudiantRepository;
+import com.example.projetsem2qrcode.modele.Cours;
+import com.example.projetsem2qrcode.modele.Etudiant;
+import com.example.projetsem2qrcode.modele.GroupeTp;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @SpringBootApplication
 public class ProjetSem2QRcodeApplication {
@@ -25,21 +27,18 @@ public class ProjetSem2QRcodeApplication {
     @Bean
     CommandLineRunner runner(EtudiantRepository repository, MongoTemplate mongoTemplate){
         return args -> {
-            Adresse adresse = new Adresse(
-                    "France",
-                    "Saint jean de braye",
-                    "45800"
-            );
+
+            Set<Etudiant> setEtudiant = new HashSet<>();
+            Map<LocalDate, Set<Cours>> coursDeLaSemaine = new HashMap<>();
+            GroupeTp groupeTp = new GroupeTp("TP1",setEtudiant);
             String email = "jonathanbaltaci@gmail.com";
             Etudiant etudiant = new Etudiant(
                     "Baltaci",
                     "Jonathan",
-                    Gender.HOMME,
+                    "2150351",
+                    groupeTp,
                     email,
-                    adresse,
-                    List.of("Computer Science", "Maths"),
-                    BigDecimal.TEN,
-                    LocalDateTime.now()
+                    coursDeLaSemaine
             );
 
            repository.findEtudiantByEmail(email)
