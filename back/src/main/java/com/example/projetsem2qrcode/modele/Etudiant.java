@@ -3,7 +3,6 @@ package com.example.projetsem2qrcode.modele;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -19,7 +18,6 @@ public class Etudiant {
     private String nom;
     private String prenom;
     private String numEtudiant;
-    @DBRef
     private GroupeTp groupeTp;
     private String email;
     private Map<LocalDate, Set<Cours>> coursDeLaSemaine;
