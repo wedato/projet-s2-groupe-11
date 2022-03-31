@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -26,6 +27,11 @@ public class AdministrateurController {
             return new ResponseEntity<>(etudiant,HttpStatus.FOUND);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/etudiant")
+    public ResponseEntity<List<Etudiant>> getEtudiantByNumEtudiant(@RequestParam(value = "numEtudiant") String numEtudiant){
+        return new ResponseEntity<>(repository.findByNumEtudiant(numEtudiant),HttpStatus.FOUND);
     }
 
     @PostMapping("/etudiants")

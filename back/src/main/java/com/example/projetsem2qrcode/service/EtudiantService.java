@@ -22,6 +22,6 @@ public class EtudiantService {
         return etudiantRepository.findById(id);
     }
 
-    public Optional<Etudiant> finByNumEtudiant(String numEtudiant) { return etudiantRepository.findEtudiantByNumEtudiant(numEtudiant);}
+    public List<Etudiant> findByNumEtudiant(String numEtudiant) {return etudiantRepository.findEtudiantByNumEtudiant(numEtudiant);}
 
 }
