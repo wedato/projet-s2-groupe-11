@@ -9,9 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface EtudiantRepository extends MongoRepository<Etudiant,String> {
-
-    @Query("{name:'?0'}")
-    Etudiant findByName(String name);
-
-    long count();
+    @Query("numEtudiant : '?0' ")
+    Optional<Etudiant> findEtudiantByNumEtudiant(String s);
 }

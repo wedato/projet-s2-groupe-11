@@ -14,11 +14,4 @@ import java.util.List;
 @RequestMapping("api/v1/etudiants")
 @AllArgsConstructor
 public class EtudiantController {
-
-    private final EtudiantService etudiantService;
-
-    @GetMapping
-    public List<Etudiant> fetchAllEtudiants() {
-        return etudiantService.getAllEtudiants();
-    }
 }
