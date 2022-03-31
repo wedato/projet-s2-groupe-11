@@ -20,36 +20,7 @@ import java.util.Set;
 public class ProjetSem2QRcodeApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(ProjetSem2QRcodeApplication.class, args);
-    }
-
-    @Bean
-    CommandLineRunner runner(EtudiantRepository repository, MongoTemplate mongoTemplate){
-        return args -> {
-
-            Set<Etudiant> setEtudiant = new HashSet<>();
-            Map<LocalDate, Set<Cours>> coursDeLaSemaine = new HashMap<>();
-            GroupeTp groupeTp = new GroupeTp("TP1",setEtudiant);
-            String email = "jonathanbaltaci@gmail.com";
-            Etudiant etudiant = new Etudiant(
-                    "Baltaci",
-                    "Jonathan",
-                    "2150351",
-                    groupeTp,
-                    email,
-                    coursDeLaSemaine
-            );
-
-           repository.findEtudiantByEmail(email)
-                   .ifPresentOrElse(e -> {
-                       System.out.println(e + "existe déjà ");
-                   } , () -> {
-                       System.out.println("Ajout étudiant " + etudiant);
-                       repository.insert(etudiant);
-                   } );
-
-        };
     }
 
 }

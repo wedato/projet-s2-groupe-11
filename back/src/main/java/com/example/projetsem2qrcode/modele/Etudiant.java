@@ -10,25 +10,22 @@ import java.util.Map;
 import java.util.Set;
 
 @Data
-@Document
+@Document("etudiants")
 public class Etudiant {
+
     @Id
     private String id;
+
     private String nom;
     private String prenom;
     private String numEtudiant;
-    private GroupeTp groupeTp;
-    @Indexed(unique = true)
     private String email;
-    private Map<LocalDate, Set<Cours>> coursDeLaSemaine;
 
-    public Etudiant(String nom, String prenom, String numEtudiant, GroupeTp groupeTp, String email, Map<LocalDate, Set<Cours>> coursDeLaSemaine ) {
+    public Etudiant(String nom, String prenom, String numEtudiant, String email ) {
         this.nom = nom;
         this.prenom = prenom;
         this.numEtudiant = numEtudiant;
-        this.groupeTp = groupeTp;
         this.email = email;
-        this.coursDeLaSemaine = coursDeLaSemaine;
 
     }
 }
