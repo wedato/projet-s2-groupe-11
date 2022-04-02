@@ -38,6 +38,6 @@ export class HttpClientService {
 
   getProducts(){
     console.log("Test call")
-    return this.httpCLient.get<Etudiant[]>('http://localhost:8080/api/v1/etudiants/')
+    return this.httpCLient.get<Etudiant[]>('http://localhost:8080/etudiant/')
   }
 }
