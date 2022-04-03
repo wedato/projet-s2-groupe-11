@@ -1,0 +1,44 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          required
+          [(ngModel)]="etudiant.nom"
+          name="nom"
+        />
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="prenom"
+          required
+          [(ngModel)]="etudiant.prenom"
+          name="prenom"
+        />
+      </div>
+      <div class="form-group">
+        <label for="numEtudiant">Numéro étudiant</label>
+        <input
+          type="text"
+          class="form-control"
+          id="numEtudiant"
+          required
+          [(ngModel)]="etudiant.numEtudiant"
+          name="numEtudiant"
+        />
+      </div>
+      <button (click)="saveEtudiant()" class="btn btn-success">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Etudiant a bien été submit</h4>
+      <button class="btn btn-succes" (click)="newEtudiant()">Ajouter</button>s
+    </div>
+  </div>
+</div>
