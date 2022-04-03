@@ -15,7 +15,7 @@ export class PostService{
     this.http.get<{message: string, posts: Post[]}>('http://localhost:3000/api/posts')
       .subscribe((postData) => {
           this.posts = postData.posts;
-          // ... so cant edit msg in service
+          // ... so cant edit msg in services
           this.postsUpdated.next([...this.posts])
       });
   }
@@ -25,6 +25,7 @@ export class PostService{
   }
 
   addPost(title: string, content: string){
+    // @ts-ignore
     const post: Post = {id:null, title: title, content: content};
     this.http.post<{message: string}>('http://localhost:3000/api/posts', post)
       .subscribe((responseData) =>{

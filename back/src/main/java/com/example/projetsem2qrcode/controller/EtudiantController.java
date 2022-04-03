@@ -48,7 +48,7 @@ public class EtudiantController {
         }
     }
 
-    @GetMapping("/etudiant/{id}")
+    @GetMapping("/etudiants/{id}")
     public ResponseEntity<Etudiant> getEtudiantById(@PathVariable("id") String id){
         Optional<Etudiant> etudiantData = etudiantRepository.findById(id);
         if(etudiantData.isPresent()){
@@ -58,7 +58,7 @@ public class EtudiantController {
         }
     }
 
-    @GetMapping("/etudiant/numEtu/{numEtudiant}")
+    @GetMapping("/etudiants/numEtu/{numEtudiant}")
     public ResponseEntity<Etudiant> getEtudiantByNumEtudiant(@PathVariable("numEtudiant") String numEtudiant){
         Optional<Etudiant> etudiantData = etudiantRepository.findEtudiantByNumEtudiant(numEtudiant);
         if(etudiantData.isPresent()){
@@ -68,7 +68,7 @@ public class EtudiantController {
         }
     }
 
-    @PutMapping("/etudiant/{id}")
+    @PutMapping("/etudiants/{id}")
     public ResponseEntity<Etudiant> updateEtudiant(@PathVariable("id") String id, @RequestBody Etudiant etudiant){
         Optional<Etudiant> etudiantData = etudiantRepository.findById(id);
         if(etudiantData.isPresent()){
@@ -82,6 +82,15 @@ public class EtudiantController {
         }
     }
 
+    @DeleteMapping("/etudiants/{id}")
+    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") String id) {
+        try {
+            etudiantRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     }
 

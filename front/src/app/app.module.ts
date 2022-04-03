@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from "@angular/router";
-import { EtudiantComponent } from './etudiant/etudiant.component';
 import { HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from "@angular/forms";
@@ -15,32 +14,25 @@ import {MatCardModule} from "@angular/material/card";
 import {HeaderComponent} from "./header/header.component";
 import {PostListComponent} from "./posts/post-list/post-list.component";
 import {PostCreateComponent} from "./posts/post-create/post-create.component";
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { AddEtudiantComponent } from './components/add-etudiant/add-etudiant.component';
+import { EtudiantDetailsComponent } from './components/etudiant-details/etudiant-details.component';
+import { EtudiantsListComponent } from './components/etudiants-list/etudiants-list.component';
 
 
-
-const routes: Routes = [
-  {path: 'etudiants' , component: EtudiantComponent}
-]
 
 @NgModule({
   declarations: [
     AppComponent,
-    EtudiantComponent,
     HeaderComponent,
     PostListComponent,
     PostCreateComponent,
-    CreateEmployeeComponent,
-    EmployeeDetailsComponent,
-    EmployeeListComponent,
-    UpdateEmployeeComponent
+    AddEtudiantComponent,
+    EtudiantDetailsComponent,
+    EtudiantsListComponent,
+
   ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes),
         HttpClientModule,
         BrowserAnimationsModule,
         FormsModule,
