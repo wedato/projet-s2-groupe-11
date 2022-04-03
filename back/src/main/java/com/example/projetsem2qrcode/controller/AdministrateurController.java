@@ -23,19 +23,41 @@ public class AdministrateurController {
     @GetMapping("/etudiant/{id}")
     public ResponseEntity<Optional<Etudiant>> getEtudiant(@PathVariable(value = "id") String id){
         Optional<Etudiant> etudiant = repository.etudiantOptional(id);
-        if (etudiant != null){
-            return new ResponseEntity<>(etudiant,HttpStatus.FOUND);
-        }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return etudiant.isPresent() ?
+                new ResponseEntity<>(etudiant,HttpStatus.FOUND) :
+                new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/etudiant")
-    public ResponseEntity<List<Etudiant>> getEtudiantByNumEtudiant(@RequestParam(value = "numEtudiant") String numEtudiant){
-        return new ResponseEntity<>(repository.findByNumEtudiant(numEtudiant),HttpStatus.FOUND);
+    public ResponseEntity<Etudiant> getEtudiantByNumEtudiant(@RequestParam(value = "numEtudiant") String numEtudiant){
+        Etudiant etudiant = repository.findByNumEtudiant(numEtudiant);
+        return etudiant == null ?
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) :
+                new ResponseEntity<>(etudiant,HttpStatus.FOUND) ;
     }
 
     @PostMapping("/etudiants")
     public ResponseEntity<Etudiant> creatEtudiant(@RequestBody Etudiant etudiant){
-       return new ResponseEntity(repository.saveEtudiant(etudiant), HttpStatus.CREATED);
+       return new ResponseEntity<>(repository.saveEtudiant(etudiant), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/etudiant")
+    public ResponseEntity<HttpStatus> deleteEtudiantByNumEtudiant(@RequestParam(value = "numEtudiant") String numEtudiant){
+        try {
+            repository.deleteEtudiantByNumEtudiant(numEtudiant);
+            return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/etudiant")
+    public ResponseEntity<HttpStatus> deleteAllEtudiant(){
+        try {
+            repository.deleteAllEtudiant();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

@@ -10,6 +10,8 @@ import java.util.List;
 
 @Repository
 public interface EtudiantRepository extends MongoRepository<Etudiant,String>{
+
     @Query("{'numEtudiant' : ?0}")
     List<Etudiant> findEtudiantByNumEtudiant(String numEtudiant);
+
 }
