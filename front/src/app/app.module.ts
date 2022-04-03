@@ -17,6 +17,7 @@ import {PostCreateComponent} from "./posts/post-create/post-create.component";
 import { AddEtudiantComponent } from './components/add-etudiant/add-etudiant.component';
 import { EtudiantDetailsComponent } from './components/etudiant-details/etudiant-details.component';
 import { EtudiantsListComponent } from './components/etudiants-list/etudiants-list.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 
 
@@ -32,6 +33,7 @@ import { EtudiantsListComponent } from './components/etudiants-list/etudiants-li
 
   ],
     imports: [
+        RouterModule,
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -41,7 +43,8 @@ import { EtudiantsListComponent } from './components/etudiants-list/etudiants-li
         MatCardModule,
         MatButtonModule,
         MatToolbarModule,
-        MatExpansionModule
+        MatExpansionModule,
+        AppRoutingModule
     ],
   providers: [],
   bootstrap: [AppComponent],

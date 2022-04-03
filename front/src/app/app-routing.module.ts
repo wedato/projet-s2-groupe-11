@@ -2,10 +2,10 @@ import {EtudiantsListComponent} from "./components/etudiants-list/etudiants-list
 import {EtudiantDetailsComponent} from "./components/etudiant-details/etudiant-details.component";
 import {AddEtudiantComponent} from "./components/add-etudiant/add-etudiant.component";
 import {NgModule} from "@angular/core";
-import {RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 
 
-const routes = [
+const routes: Routes = [
   {path: '' , redirectTo: 'etudiants', pathMatch:'full'},
   {path: 'etudiants' , component: EtudiantsListComponent},
   {path: 'etudiants/:id' , component: EtudiantDetailsComponent},

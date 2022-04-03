@@ -1,6 +1,16 @@
-<app-header></app-header>
-<main>
-  <app-post-create ></app-post-create>
-  <app-post-list></app-post-list>
-<!--  <app-root></app-root>-->
-</main>
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">la super api des étudiants</a>
+  <div class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a routerLink="etudiants" class="nav-link">Etudiants</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="add" class="nav-link">Ajouter un etudiant</a>
+    </li>
+    </div>
+  </nav>
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
