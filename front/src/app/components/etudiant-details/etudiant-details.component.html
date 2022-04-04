@@ -1,1 +1,75 @@
-<p>etudiant-details works!</p>
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentEtudiant.id">
+    <h1>Tutorial</h1>
+    <div>
+      <label><strong>Num Etudiant:</strong></label>
+      {{currentEtudiant.numEtudiant}}
+    </div>
+    <div>
+      <label><strong>Nom</strong></label>
+      {{currentEtudiant.nom}}
+    </div>
+    <div>
+      <label><strong>Prenom</strong></label>
+      {{currentEtudiant.prenom}}
+    </div>
+    <a
+      class="badge alert-warning"
+      routerLink="/etudiants/{{currentEtudiant.id}}"
+    >
+      Edit
+    </a>
+  </div>
+  <div *ngIf="!currentEtudiant">
+    <br>
+    <p>Click sur un étudiant stp</p>
+  </div>
+</div>
+<ng-template #editable>
+<div *ngIf="currentEtudiant.id" class="edit-form">
+  <h4>Etudiant</h4>
+  <form>
+    <div>
+      <label for="numEtudiant">numEtudiant</label>
+      <input
+        type="text"
+        class="form-control"
+        id="numEtudiant"
+        [(ngModel)]="currentEtudiant.numEtudiant"
+        name="numEtudiant"
+      >
+    </div>
+    <div>
+      <label for="nom">nom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nom"
+        [(ngModel)]="currentEtudiant.nom"
+        name="nom"
+      >
+    </div>
+    <div>
+      <label for="prenom">Prenom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="prenom"
+        [(ngModel)]="currentEtudiant.prenom"
+        name="prenom"
+      >
+    </div>
+  </form>
+  <button class="badge badge-danger mr-2" (click)="deleteEtudiant()">
+    Delete
+  </button>
+  <button class="badge badge-success mb-2" (click)="updateEtudiant()">
+  Update
+  </button>
+  <p>{{message}}</p>
+</div>
+  <div *ngIf="!currentEtudiant.id">
+    <br>
+    <p>Cnot access this etudiant</p>
+  </div>
+</ng-template>

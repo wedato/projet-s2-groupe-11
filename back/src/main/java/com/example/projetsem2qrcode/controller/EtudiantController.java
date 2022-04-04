@@ -92,5 +92,15 @@ public class EtudiantController {
         }
     }
 
+    @DeleteMapping("/etudiants")
+    public ResponseEntity<HttpStatus> deleteAllEtudiant(){
+        try {
+            etudiantRepository.deleteAll();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     }
 
