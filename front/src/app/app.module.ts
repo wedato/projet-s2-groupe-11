@@ -12,8 +12,6 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {HeaderComponent} from "./header/header.component";
-import {PostListComponent} from "./posts/post-list/post-list.component";
-import {PostCreateComponent} from "./posts/post-create/post-create.component";
 import { AddEtudiantComponent } from './components/add-etudiant/add-etudiant.component';
 import { EtudiantDetailsComponent } from './components/etudiant-details/etudiant-details.component';
 import { EtudiantsListComponent } from './components/etudiants-list/etudiants-list.component';
@@ -25,8 +23,6 @@ import {AppRoutingModule} from "./app-routing.module";
   declarations: [
     AppComponent,
     HeaderComponent,
-    PostListComponent,
-    PostCreateComponent,
     AddEtudiantComponent,
     EtudiantDetailsComponent,
     EtudiantsListComponent,
