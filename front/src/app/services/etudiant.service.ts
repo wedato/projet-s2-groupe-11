@@ -29,7 +29,7 @@ export class EtudiantService {
   deleteAll():Observable<any> {
     return this.http.delete(baseUrl);
   }
-  findByNumEtu(numEtudiant: any): Observable<Etudiant[]> {
-    return this.http.get<Etudiant[]>(`${baseUrl}?title=${numEtudiant}`);
+  findByNumEtu(numEtudiant: any): Observable<Etudiant> {
+    return this.http.get<Etudiant>(`${baseUrl}/numEtu/${numEtudiant}`);
   }
 }

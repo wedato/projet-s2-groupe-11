@@ -2,10 +2,12 @@ package com.example.projetsem2qrcode.modele;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.util.Set;
 
+@Document
 @Data
 public class Cours {
     @Id

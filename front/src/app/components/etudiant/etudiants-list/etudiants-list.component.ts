@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Etudiant} from "../../models/etudiant.model";
-import {EtudiantService} from "../../services/etudiant.service";
+import {Etudiant} from "../../../models/etudiant.model";
+import {EtudiantService} from "../../../services/etudiant.service";
 
 @Component({
   selector: 'app-etudiants-list',
@@ -55,7 +55,7 @@ export class EtudiantsListComponent implements OnInit {
     this.etudiantService.findByNumEtu(this.numEtudiant)
       .subscribe({
         next: (data) => {
-          this.etudiants = data;
+          this.currentEtudiant = data;
           console.log(data)
         },
         error: (e) => console.error(e)

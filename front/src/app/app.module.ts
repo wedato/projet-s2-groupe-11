@@ -11,21 +11,23 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
-import {HeaderComponent} from "./header/header.component";
-import { AddEtudiantComponent } from './components/add-etudiant/add-etudiant.component';
-import { EtudiantDetailsComponent } from './components/etudiant-details/etudiant-details.component';
-import { EtudiantsListComponent } from './components/etudiants-list/etudiants-list.component';
+import { AddEtudiantComponent } from './components/etudiant/add-etudiant/add-etudiant.component';
+import { EtudiantDetailsComponent } from './components/etudiant/etudiant-details/etudiant-details.component';
+import { EtudiantsListComponent } from './components/etudiant/etudiants-list/etudiants-list.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { CoursListComponent } from './components/cours/cours-list/cours-list.component';
+import { HeaderComponent } from './components/header/header/header.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     AddEtudiantComponent,
     EtudiantDetailsComponent,
     EtudiantsListComponent,
+    CoursListComponent,
+    HeaderComponent,
 
   ],
     imports: [
