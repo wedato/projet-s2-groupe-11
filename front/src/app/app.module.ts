@@ -17,6 +17,7 @@ import { EtudiantsListComponent } from './components/etudiant/etudiants-list/etu
 import {AppRoutingModule} from "./app-routing.module";
 import { CoursListComponent } from './components/cours/cours-list/cours-list.component';
 import { HeaderComponent } from './components/header/header/header.component';
+import { GroupeTpComponent } from './components/groupe-tp/groupe-tp.component';
 
 
 
@@ -28,6 +29,7 @@ import { HeaderComponent } from './components/header/header/header.component';
     EtudiantsListComponent,
     CoursListComponent,
     HeaderComponent,
+    GroupeTpComponent,
 
   ],
     imports: [
