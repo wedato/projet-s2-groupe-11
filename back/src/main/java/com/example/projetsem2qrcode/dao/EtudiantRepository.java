@@ -2,11 +2,16 @@ package com.example.projetsem2qrcode.dao;
 
 import com.example.projetsem2qrcode.modele.Etudiant;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
-import java.util.Optional;
+import org.springframework.stereotype.Repository;
 
-public interface EtudiantRepository extends MongoRepository<Etudiant,String> {
+import java.util.List;
 
-    Optional<Etudiant> findEtudiantByNumEtudiant(String numEtudiant);
+@Repository
+public interface EtudiantRepository extends MongoRepository<Etudiant,String>{
+
+    @Query("{'numEtudiant' : ?0}")
+    List<Etudiant> findEtudiantByNumEtudiant(String numEtudiant);
 
 }
