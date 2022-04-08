@@ -1,4 +1,4 @@
-package com.example.projetsem2qrcode.controller;
+package com.example.projetsem2qrcode.controlleradmin;
 
 
 import com.example.projetsem2qrcode.QrCodeGenerator;

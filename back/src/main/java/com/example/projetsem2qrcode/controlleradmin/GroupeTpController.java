@@ -1,4 +1,4 @@
-package com.example.projetsem2qrcode.controller;
+package com.example.projetsem2qrcode.controlleradmin;
 
 
 import com.example.projetsem2qrcode.dao.EtudiantRepository;
@@ -51,7 +51,7 @@ public class GroupeTpController {
         }
     }
 
-    @PutMapping("/groupe/{idGroupe}")
+    @PutMapping("/groupetp/{idGroupe}")
     public ResponseEntity<GroupeTp> addEtudiantAuGroupeTp(@PathVariable("idGroupe") String idGroupe ,@RequestBody IdEtudiant idEtudiant){
        Optional<Etudiant> etudiantdata = etudiantRepository.findById(idEtudiant.getId());
        Optional<GroupeTp> groupeTpData = groupeTpRepository.findById(idGroupe);
@@ -78,49 +78,28 @@ public class GroupeTpController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-//    @GetMapping("/etudiants/numEtu/{numEtudiant}")
-//    public ResponseEntity<Etudiant> getEtudiantByNumEtudiant(@PathVariable("numEtudiant") String numEtudiant){
-//        Optional<Etudiant> etudiantData = etudiantRepository.findEtudiantByNumEtudiant(numEtudiant);
-//        if(etudiantData.isPresent()){
-//            return new ResponseEntity<>(etudiantData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-//
-//    @PutMapping("/etudiants/{id}")
-//    public ResponseEntity<Etudiant> updateEtudiant(@PathVariable("id") String id, @RequestBody Etudiant etudiant){
-//        Optional<Etudiant> etudiantData = etudiantRepository.findById(id);
-//        if(etudiantData.isPresent()){
-//            Etudiant _etudiant = etudiantData.get();
-//            _etudiant.setNom(etudiant.getNom());
-//            _etudiant.setPrenom(etudiant.getPrenom());
-//            _etudiant.setNumEtudiant(etudiant.getNumEtudiant());
-//            return new ResponseEntity<>(etudiantRepository.save(_etudiant),HttpStatus.OK);
-//        }else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-//
-//    @DeleteMapping("/etudiants/{id}")
-//    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") String id) {
-//        try {
-//            etudiantRepository.deleteById(id);
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-//
-//    @DeleteMapping("/etudiants")
-//    public ResponseEntity<HttpStatus> deleteAllEtudiant(){
-//        try {
-//            etudiantRepository.deleteAll();
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//    }
+
+
+
+    @DeleteMapping("/groupetp/{id}")
+    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") String id) {
+        try {
+            groupeTpRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/groupetp")
+    public ResponseEntity<HttpStatus> deleteAllEtudiant(){
+        try {
+            groupeTpRepository.deleteAll();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 
     }
 
