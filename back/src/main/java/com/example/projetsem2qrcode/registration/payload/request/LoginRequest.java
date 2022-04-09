@@ -1,7 +1,7 @@
 package com.example.projetsem2qrcode.registration.payload.request;
 
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 public class LoginRequest {
     @NotBlank
